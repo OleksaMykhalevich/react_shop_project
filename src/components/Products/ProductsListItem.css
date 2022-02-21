@@ -1,0 +1,27 @@
+.product-img{
+    text-align: center;
+}
+
+.product-img img{
+    height: 150px;
+    width: auto;
+}
+.wrap-btn-add-to-cart{
+    justify-content: center;
+}
+.product-price{
+    font-size: 20px;
+    text-align: center;
+}
+.product-features{
+    font-size: 17px;
+    margin: 10px;
+}
+.product-quantity{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.product-quantity input{
+    text-align: center;
+}
