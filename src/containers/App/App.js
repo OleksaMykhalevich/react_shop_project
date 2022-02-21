@@ -6,21 +6,18 @@ import { Main } from 'containers/Main/Main'
 import { useState } from 'react'
 
 export const App = () => {
-    const [cartData, setCartData] = useState({
-        totalCount: 0,
-        totalPrice: 0,
+    const [productInCart, setProductInCart] = useState({
+        1: 5,
+        2: 3,
     })
 
-    const addProductToCart = (count, price) =>
-        setCartData((prevState) => ({
-            totalCount: prevState.totalCount + count,
-            totalPrice: prevState.totalPrice + price * count,
-        }))
+    const addProductToCart = () => {}
+
     return (
         <>
             <CssBaseline />
-            <Header cartData={cartData} />
-            <Main addProductToCart={addProductToCart} cartData={cartData} />
+            <Header productInCart={productInCart} />
+            <Main addProductToCart={addProductToCart} />
             <Footer />
         </>
     )

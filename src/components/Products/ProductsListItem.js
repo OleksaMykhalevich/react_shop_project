@@ -11,7 +11,6 @@ import PropTypes from 'prop-types'
 
 export const ProductsListItem = ({
     addProductToCart,
-    cartData,
     image,
     name,
     description,
