@@ -27,9 +27,7 @@ export const ProductsListItem = ({
     const onIncrementClick = () => {
         setCount(count + 1)
     }
-    const elementChoosing = () => {
-        setCount(count + 1 - 1)
-    }
+
     cartData.count = count
     cartData.price = price
     return (
