@@ -7,9 +7,17 @@ import { useState } from 'react'
 import { productsArray } from 'components/Products/productsArray'
 
 export const App = () => {
-    const [productInCart, setProductInCart] = useState({})
+    const [productInCart, setProductInCart] = useState({
+        1: 5,
+        2: 3,
+    })
 
-    const addProductToCart = (product) => {g}
+    const addProductToCart = (id, count) => {
+        setProductInCart((prevState) => ({
+            ...prevState,
+            [id]: (prevState[id] || 0) + count,
+        }))
+    }
 
     return (
         <>
