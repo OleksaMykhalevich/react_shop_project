@@ -29,7 +29,7 @@ export const ProductsListItem = ({
 
     return (
         <>
-            <Card>
+            <Card className="product">
                 <CardContent>
                     <div className="product-img">
                         <img src={image} alt="iphone"></img>
