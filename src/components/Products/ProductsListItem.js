@@ -12,62 +12,58 @@ import PropTypes from 'prop-types'
 export const ProductsListItem = ({
     id,
     addProductToCart,
-    image,
     name,
     description,
     type,
     capacity,
     price,
+    image,
 }) => {
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(1)
 
-    const onDecrementClick = () => {
+    const onDecrement = () => {
         setCount(count - 1)
     }
-    const onIncrementClick = () => {
+
+    const onIncrement = () => {
         setCount(count + 1)
     }
 
     return (
         <>
-            <Card className="product">
+            <Card>
                 <CardContent>
                     <div className="product-img">
-                        <img src={image} alt="iphone"></img>
+                        <img src={image} alt="" />
                     </div>
                     <h4>{name}</h4>
                     <p>{description}</p>
 
                     <div className="product-features">Type: {type}</div>
-                    <div className="product-features">
-                        Capacity: {capacity} Gb
-                    </div>
+                    <div className="product-features">Capacity: {capacity}</div>
                     <div className="product-price">{price} $</div>
+                    <div className="product-quantity">
+                        <Button
+                            variant="contained"
+                            onClick={onDecrement}
+                            disabled={count <= 1}
+                        >
+                            -
+                        </Button>
+                        <TextField size="small" value={count}></TextField>
+                        <Button
+                            variant="contained"
+                            onClick={onIncrement}
+                            disabled={count >= 10}
+                        >
+                            +
+                        </Button>
+                    </div>
                 </CardContent>
-                <div className="product-quantity">
-                    <Button
-                        variant="contained"
-                        onClick={onDecrementClick}
-                        disabled={count <= 0}
-                    >
-                        -
-                    </Button>
-                    <TextField size="small" value={count} />
-                    <Button
-                        variant="contained"
-                        onClick={onIncrementClick}
-                        disabled={count >= 5}
-                    >
-                        +
-                    </Button>
-                </div>
-
                 <CardActions className="wrap-btn-add-to-cart">
                     <Button
                         variant="outlined"
-                        className="wrap-btn-add-to-cart"
                         onClick={() => addProductToCart(id, count)}
-                        disabled={count <= 0}
                     >
                         Add to cart
                     </Button>
@@ -76,15 +72,17 @@ export const ProductsListItem = ({
         </>
     )
 }
+
 ProductsListItem.propTypes = {
-    image: PropTypes.string,
     name: PropTypes.string.isRequired,
     description: PropTypes.string,
     type: PropTypes.string.isRequired,
     capacity: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
+    image: PropTypes.string,
 }
+
 ProductsListItem.defaultProps = {
-    description: 'No description ...',
-    image: '/images/no-image.png',
+    description: 'No description...',
+    image: '/images/noimage.jpg',
 }

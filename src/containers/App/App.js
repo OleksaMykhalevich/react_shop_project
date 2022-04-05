@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CssBaseline from '@mui/material/CssBaseline'
-import { Footer } from 'containers/Footer/Footer'
 import { Header } from 'containers/Header/Header'
 import { Main } from 'containers/Main/Main'
-import { useState } from 'react'
-import { productsArray } from 'components/Products/productsArray'
+import { Footer } from 'containers/Footer/Footer'
+import { productsArray } from 'components/products/productsArray'
 
 export const App = () => {
-    const [productInCart, setProductInCart] = useState({})
+    const [productsInCart, setproductsInCart] = useState({
+        1: 2,
+        2: 2,
+    })
 
-    const addProductToCart = (id, count, name) => {
-        setProductInCart((prevState) => ({
+    const addProductToCart = (id, count) => {
+        setproductsInCart((prevState) => ({
             ...prevState,
             [id]: (prevState[id] || 0) + count,
         }))
@@ -19,7 +21,7 @@ export const App = () => {
     return (
         <>
             <CssBaseline />
-            <Header productInCart={productInCart} />
+            <Header productsInCart={productsInCart} />
             <Main addProductToCart={addProductToCart} />
             <Footer />
         </>

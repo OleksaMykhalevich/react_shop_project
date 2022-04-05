@@ -22,9 +22,8 @@ export const ProductList = ({ addProductToCart }) => {
                 variant="h4"
                 className={classes.title}
             >
-                Products List
+                ProductList
             </Typography>
-
             <Grid
                 container
                 direction="row"
@@ -37,8 +36,8 @@ export const ProductList = ({ addProductToCart }) => {
                         id,
                         name,
                         description,
-                        type,
                         capacity,
+                        type,
                         price,
                         image,
                     }) => (
@@ -48,8 +47,8 @@ export const ProductList = ({ addProductToCart }) => {
                                 image={image}
                                 name={name}
                                 description={description}
-                                type={type}
                                 capacity={capacity}
+                                type={type}
                                 price={price}
                                 addProductToCart={addProductToCart}
                             />
