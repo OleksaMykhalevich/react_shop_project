@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { keys } from 'lodash'
 import { productsArray } from 'components/products/productsArray'
-import { Link } from 'react-router-dom'
 
 const productsObject = productsArray.reduce(
     (obj, product) => ({
@@ -32,7 +31,6 @@ export const CartHeader = ({ productsInCart }) => {
                 }, 0)}{' '}
                 0$
             </div>
-            <Link to="/cart">Show cart</Link>
         </div>
     )
 }
