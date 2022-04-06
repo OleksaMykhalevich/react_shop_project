@@ -54,3 +54,13 @@ export const productsArray = [
         image: '/images/iphone-blue.jpg',
     },
 ]
+
+export const getProductsObject = (array) => {
+    return array.reduce(
+        (obj, product) => ({
+            ...obj,
+            [product.id]: product,
+        }),
+        {}
+    )
+}
