@@ -3,10 +3,14 @@ import { Container } from '@mui/material'
 import { ProductList } from 'components/products/ProductsList'
 import { Route, Routes } from 'react-router-dom'
 import { CartPage } from 'pages/CartPage/CartPage'
-import { PaymentPage } from 'pages/PaymentPage/PaymentPage'
-import { ShippingPage } from 'pages/ShippingPage/ShippingPage'
+import { PaymentPage } from 'pages/PaymentPage/Payment'
+import { ShippingPage } from 'pages/ShippingPage/Shipping'
 
-export const Main = ({ addProductToCart, productsInCart }) => {
+export const Main = ({
+    addProductToCart,
+    productsInCart,
+    removeProductFromCart,
+}) => {
     return (
         <>
             <Container>
@@ -18,17 +22,22 @@ export const Main = ({ addProductToCart, productsInCart }) => {
                         }
                     />
                     <Route
-                        path="/products"
+                        path="products"
                         element={
                             <ProductList addProductToCart={addProductToCart} />
                         }
                     />
                     <Route
-                        path="/cart"
-                        element={<CartPage productsInCart={productsInCart} />}
+                        path="cart"
+                        element={
+                            <CartPage
+                                removeProductFromCart={removeProductFromCart}
+                                productsInCart={productsInCart}
+                            />
+                        }
                     />
-                    <Route path="/payment" element={<PaymentPage />} />
-                    <Route path="/shipping" element={<ShippingPage />} />
+                    <Route path="payment" element={<PaymentPage />} />
+                    <Route path="shipping" element={<ShippingPage />} />
                 </Routes>
             </Container>
         </>

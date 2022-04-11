@@ -1,33 +1,34 @@
 import React from 'react'
 import { Button } from '@mui/material'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-const setNavLinkClass = ({ isActive }) => (isActive ? 'nav-link' : 'menu-link')
+const setNavLinks = ({ isActive }) => (isActive ? 'nav-link' : '')
+
 export const Menu = () => {
     return (
         <>
             <Button color="inherit">
-                <NavLink className={setNavLinkClass} to="/">
+                <NavLink className={setNavLinks} to="/">
                     Home
                 </NavLink>
             </Button>
             <Button color="inherit">
-                <NavLink className={setNavLinkClass} to="/products">
+                <NavLink className={setNavLinks} to="/products">
                     Products
                 </NavLink>
             </Button>
             <Button color="inherit">
-                <NavLink className={setNavLinkClass} to="/payment">
+                <NavLink className={setNavLinks} to="/payment">
                     Payment
                 </NavLink>
             </Button>
             <Button color="inherit">
-                <NavLink className={setNavLinkClass} to="/shipping">
+                <NavLink className={setNavLinks} to="/shipping">
                     Shipping
                 </NavLink>
             </Button>
             <Button color="inherit">
-                <NavLink className={setNavLinkClass} to="/cart">
+                <NavLink className={setNavLinks} to="/cart">
                     Cart
                 </NavLink>
             </Button>

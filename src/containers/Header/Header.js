@@ -9,7 +9,6 @@ import { Menu } from 'components/Menu/Menu'
 import { CartHeader } from 'components/Cart/CartHeader'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@mui/styles'
-import { ClassNames } from '@emotion/react'
 
 const useStyles = makeStyles({
     logo: {
@@ -43,7 +42,8 @@ export const Header = ({ productsInCart }) => {
                             sx={{ flexGrow: 1 }}
                         >
                             <Link className={classes.logo} to="/">
-                                Fake Shop
+                                {' '}
+                                Fake Shop{' '}
                             </Link>
                         </Typography>
                         <Menu />

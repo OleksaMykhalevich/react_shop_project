@@ -3,21 +3,25 @@ import { keys } from 'lodash'
 import {
     getProductsObject,
     productsArray,
+    removeProductFromCart,
 } from 'components/products/productsArray'
+import { CartProductListItem } from './CartProductListItem'
 
 export const CartProductList = ({
     productsInCart,
     productsObject = getProductsObject(productsArray),
+    CartItem = CartProductListItem,
 }) => {
     return (
-        <div>
+        <>
             {keys(productsInCart).map((productId) => (
-                <div key={productId}>
-                    {productsObject[productId].name} :
-                    {productsInCart[productId]} :{' '}
-                    {productsObject[productId].price}
-                </div>
+                <CartItem
+                    key={productId}
+                    product={productsObject[productId]}
+                    productCount={productsInCart[productId]}
+                    removeProductFromCart={removeProductFromCart}
+                />
             ))}
-        </div>
+        </>
     )
 }

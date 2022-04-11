@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-import { keys } from 'lodash'
-import { CartTotal } from './CartTotal'
-
 import {
-    getProductsObject,
     productsArray,
+    getProductsObject,
 } from 'components/products/productsArray'
-import { CartProductList } from 'components/Cart/CartProductList'
+import { CartTotal } from './CartTotal'
+import { CartProductList } from './CartProductList'
 
 export const CartHeader = ({
     productsInCart,
