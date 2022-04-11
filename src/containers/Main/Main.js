@@ -18,17 +18,17 @@ export const Main = ({ addProductToCart, productsInCart }) => {
                         }
                     />
                     <Route
-                        path="products"
+                        path="/products"
                         element={
                             <ProductList addProductToCart={addProductToCart} />
                         }
                     />
                     <Route
-                        path="cart"
+                        path="/cart"
                         element={<CartPage productsInCart={productsInCart} />}
                     />
-                    <Route path="payment" element={<PaymentPage />} />
-                    <Route path="shipping" element={<ShippingPage />} />
+                    <Route path="/payment" element={<PaymentPage />} />
+                    <Route path="/shipping" element={<ShippingPage />} />
                 </Routes>
             </Container>
         </>

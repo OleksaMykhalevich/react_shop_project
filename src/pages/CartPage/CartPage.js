@@ -1,35 +1,15 @@
 import React from 'react'
 import { keys } from 'lodash'
-import {
-    getProductsObject,
-    productsArray,
-} from 'components/products/productsArray'
+import { CartProductList } from 'components/Cart/CartProductList'
+import { CartTotal } from 'components/Cart/CartTotal'
 
-export const CartPage = ({
-    productsInCart,
-    productsObject = getProductsObject(productsArray),
-}) => {
+export const CartPage = ({ productsInCart }) => {
     return (
         <>
             <h1>Cart</h1>
             <div>
-                {keys(productsInCart).map((productId) => (
-                    <div key={productId}>
-                        {productsObject[productId].name} :
-                        {productsInCart[productId]} :{' '}
-                        {productsObject[productId].price}
-                    </div>
-                ))}
-                <div>
-                    {keys(productsInCart).reduce((total, productId) => {
-                        return (
-                            total +
-                            productsObject[productId].price *
-                                productsInCart[productId]
-                        )
-                    }, 0)}{' '}
-                    0$
-                </div>
+                <CartProductList productsInCart={productsInCart} />
+                <CartTotal productsInCart={productsInCart} />
             </div>
         </>
     )
