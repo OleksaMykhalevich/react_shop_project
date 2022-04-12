@@ -36,16 +36,17 @@ export const Header = ({ productsInCart }) => {
                         >
                             <MenuIcon />
                         </IconButton>
+
                         <Typography
                             variant="h6"
                             component="div"
                             sx={{ flexGrow: 1 }}
                         >
-                            <Link className={classes.logo} to="/">
-                                {' '}
-                                Fake Shop{' '}
+                            <Link to="/" className={classes.logo}>
+                                Fake Shop
                             </Link>
                         </Typography>
+
                         <Menu />
                         <CartHeader productsInCart={productsInCart} />
                     </Toolbar>

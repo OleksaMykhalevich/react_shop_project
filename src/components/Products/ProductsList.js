@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const ProductList = ({ addProductToCart }) => {
+export const ProductsList = ({ addProductToCart }) => {
     const classes = useStyles()
     return (
         <>
@@ -22,8 +22,9 @@ export const ProductList = ({ addProductToCart }) => {
                 variant="h4"
                 className={classes.title}
             >
-                ProductList
+                Products List
             </Typography>
+
             <Grid
                 container
                 direction="row"
@@ -44,12 +45,12 @@ export const ProductList = ({ addProductToCart }) => {
                         <Grid item xs={12} sm={6} md={4} key={id}>
                             <ProductsListItem
                                 id={id}
-                                image={image}
                                 name={name}
                                 description={description}
                                 capacity={capacity}
                                 type={type}
                                 price={price}
+                                image={image}
                                 addProductToCart={addProductToCart}
                             />
                         </Grid>

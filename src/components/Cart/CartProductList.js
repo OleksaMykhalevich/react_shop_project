@@ -1,16 +1,17 @@
 import React from 'react'
 import { keys } from 'lodash'
+
 import {
     getProductsObject,
     productsArray,
-    removeProductFromCart,
-} from 'components/products/productsArray'
-import { CartProductListItem } from './CartProductListItem'
+} from 'components/Products/productsArray'
+import { CartProductListItem } from './CartProductsListItem'
 
 export const CartProductList = ({
     productsInCart,
     productsObject = getProductsObject(productsArray),
     CartItem = CartProductListItem,
+    removeProductFromCart,
 }) => {
     return (
         <>

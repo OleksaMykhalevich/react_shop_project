@@ -1,15 +1,9 @@
-import React, { useState } from 'react'
-import {
-    productsArray,
-    getProductsObject,
-} from 'components/products/productsArray'
+import React from 'react'
+
 import { CartTotal } from './CartTotal'
 import { CartProductList } from './CartProductList'
 
-export const CartHeader = ({
-    productsInCart,
-    productsObject = getProductsObject(productsArray),
-}) => {
+export const CartHeader = ({ productsInCart }) => {
     return (
         <div>
             <CartProductList productsInCart={productsInCart} />

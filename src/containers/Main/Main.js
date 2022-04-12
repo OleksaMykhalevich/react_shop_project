@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container } from '@mui/material'
-import { ProductList } from 'components/products/ProductsList'
-import { Route, Routes } from 'react-router-dom'
+import { ProductsList } from 'components/Products/ProductsList'
+import { Routes, Route } from 'react-router-dom'
 import { CartPage } from 'pages/CartPage/CartPage'
-import { PaymentPage } from 'pages/PaymentPage/Payment'
-import { ShippingPage } from 'pages/ShippingPage/Shipping'
+import { PaymentPage } from 'pages/PaymentPage/PaymentPage'
+import { ShippingPage } from 'pages/ShippingPage/ShippingPage'
 
 export const Main = ({
     addProductToCart,
@@ -18,21 +18,21 @@ export const Main = ({
                     <Route
                         path="/"
                         element={
-                            <ProductList addProductToCart={addProductToCart} />
+                            <ProductsList addProductToCart={addProductToCart} />
                         }
                     />
                     <Route
                         path="products"
                         element={
-                            <ProductList addProductToCart={addProductToCart} />
+                            <ProductsList addProductToCart={addProductToCart} />
                         }
                     />
                     <Route
                         path="cart"
                         element={
                             <CartPage
-                                removeProductFromCart={removeProductFromCart}
                                 productsInCart={productsInCart}
+                                removeProductFromCart={removeProductFromCart}
                             />
                         }
                     />
