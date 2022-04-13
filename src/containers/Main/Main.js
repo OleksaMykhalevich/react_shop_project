@@ -11,6 +11,8 @@ export const Main = ({
     productsInCart,
     removeProductFromCart,
     changeProductQuantity,
+    changeLikeState,
+    likeProductsState,
 }) => {
     return (
         <>
@@ -19,13 +21,21 @@ export const Main = ({
                     <Route
                         path="/"
                         element={
-                            <ProductsList addProductToCart={addProductToCart} />
+                            <ProductsList
+                                changeLikeState={changeLikeState}
+                                likeProductsState={likeProductsState}
+                                addProductToCart={addProductToCart}
+                            />
                         }
                     />
                     <Route
                         path="products"
                         element={
-                            <ProductsList addProductToCart={addProductToCart} />
+                            <ProductsList
+                                changeLikeState={changeLikeState}
+                                likeProductsState={likeProductsState}
+                                addProductToCart={addProductToCart}
+                            />
                         }
                     />
                     <Route

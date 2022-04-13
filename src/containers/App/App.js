@@ -10,7 +10,17 @@ export const App = () => {
         1: 2,
         2: 2,
     })
-
+    const [likeProductsState, setLikeProductsState] = useState({
+        1: false,
+        2: false,
+    })
+    console.log(likeProductsState)
+    const changeLikeState = (id) => {
+        setLikeProductsState((prevState) => ({
+            ...prevState,
+            [id]: !prevState[id],
+        }))
+    }
     const addProductToCart = (id, count) => {
         setProductsInCart((prevState) => ({
             ...prevState,
@@ -41,6 +51,8 @@ export const App = () => {
                 productsInCart={productsInCart}
                 removeProductFromCart={removeProductFromCart}
                 changeProductQuantity={changeProductQuantity}
+                changeLikeState={changeLikeState}
+                likeProductsState={likeProductsState}
             />
 
             <Footer />

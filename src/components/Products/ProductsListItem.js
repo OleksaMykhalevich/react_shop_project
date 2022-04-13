@@ -21,6 +21,8 @@ export const ProductsListItem = ({
     image,
     addProductToCart,
     id,
+    isLiked,
+    changeLikeState,
 }) => {
     const [count, setCount] = useState(1)
 
@@ -38,8 +40,8 @@ export const ProductsListItem = ({
                     <div className="product-img">
                         <img src={image} alt="" />
                     </div>
-                    <Button>
-                        {false ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    <Button onClick={() => changeLikeState(id)}>
+                        {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </Button>
 
                     <h4>{name}</h4>
