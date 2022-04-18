@@ -4,10 +4,10 @@ import { App } from 'containers/App/App'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { producerLikereducer } from 'redux/productsLikeReducer'
+import { productsLikeReducer } from 'redux/productsLikeReducer'
 
 const store = createStore(
-    producerLikereducer,
+    productsLikeReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
