@@ -88,6 +88,17 @@ const mapDispatchToProps = (dispatch) => ({
             type: 'DISLIKE',
             id,
         }),
+    removeProductFromCart: (id) =>
+        dispatch({
+            type: 'REMOVE_PRODUCT_FROM_CART',
+            id,
+        }),
+    changeProductQuantity: (id, count) =>
+        dispatch({
+            type: 'CHANGE_PRODUCT_QUANTITY',
+            id,
+            count,
+        }),
 })
 export default connect(
     mapStateToProps,

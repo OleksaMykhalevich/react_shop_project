@@ -3,8 +3,9 @@ import { CartTotal } from 'components/Cart/CartTotal'
 import { CartProductList } from 'components/Cart/CartProductList'
 import CartProductListItemExtended from 'components/Cart/CartProductsListItemExtended'
 import { Grid } from '@mui/material'
+import { connect } from 'react-redux'
 
-export const CartPage = ({
+const CartPage = ({
     productsInCart,
     removeProductFromCart,
     changeProductQuantity,
@@ -24,3 +25,7 @@ export const CartPage = ({
         </>
     )
 }
+
+const mapStateToProps = (state) => ({ productsInCart: state.productsInCart })
+
+export default connect(mapStateToProps)(CartPage)
