@@ -11,36 +11,9 @@ export const Main = () => {
         <>
             <Container>
                 <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <ProductsList
-                                changeLikeState={changeLikeState}
-                                likeProductsState={likeProductsState}
-                                addProductToCart={addProductToCart}
-                            />
-                        }
-                    />
-                    <Route
-                        path="products"
-                        element={
-                            <ProductsList
-                                changeLikeState={changeLikeState}
-                                likeProductsState={likeProductsState}
-                                addProductToCart={addProductToCart}
-                            />
-                        }
-                    />
-                    <Route
-                        path="cart"
-                        element={
-                            <CartPage
-                                productsInCart={productsInCart}
-                                removeProductFromCart={removeProductFromCart}
-                                changeProductQuantity={changeProductQuantity}
-                            />
-                        }
-                    />
+                    <Route path="/" element={<ProductsList />} />
+                    <Route path="products" element={<ProductsList />} />
+                    <Route path="cart" element={<CartPage />} />
                     <Route path="payment" element={<PaymentPage />} />
                     <Route path="shipping" element={<ShippingPage />} />
                 </Routes>

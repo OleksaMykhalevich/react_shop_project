@@ -4,6 +4,7 @@ import { makeStyles } from '@mui/styles'
 import { Grid } from '@mui/material'
 import ProductsListItem from './ProductsListItem'
 import { productsArray } from './productsArray'
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles({
     title: {
@@ -18,6 +19,7 @@ export const ProductsList = ({
     likeProductsState,
 }) => {
     const classes = useStyles()
+    const productsArray = useSelector((state) => state.products)
     return (
         <>
             <Typography
@@ -57,7 +59,6 @@ export const ProductsList = ({
                                 image={image}
                                 addProductToCart={addProductToCart}
                                 changeLikeState={changeLikeState}
-                                isLiked={likeProductsState[id]}
                             />
                         </Grid>
                     )
