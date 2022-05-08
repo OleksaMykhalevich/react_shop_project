@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from '@mui/material'
 import { ProductsList } from 'components/Products/ProductsList'
 import { Routes, Route } from 'react-router-dom'
-import CartPage from 'pages/CartPage/CartPage'
+import { CartPage } from 'pages/CartPage/CartPage'
 import { PaymentPage } from 'pages/PaymentPage/PaymentPage'
 import { ShippingPage } from 'pages/ShippingPage/ShippingPage'
 

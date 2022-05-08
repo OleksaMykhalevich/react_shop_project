@@ -6,25 +6,29 @@ import {
     productsArray,
 } from 'components/Products/productsArray'
 import { CartProductListItem } from './CartProductsListItem'
+import { useSelector } from 'react-redux'
 
 export const CartProductList = ({
     productsInCart,
-    productsObject = getProductsObject(productsArray),
+    productsObject,
     CartItem = CartProductListItem,
-    removeProductFromCart,
-    changeProductQuantity,
 }) => {
-    return (
-        <>
-            {keys(productsInCart).map((productId) => (
-                <CartItem
-                    key={productId}
-                    product={productsObject[productId]}
-                    productCount={productsInCart[productId]}
-                    removeProductFromCart={removeProductFromCart}
-                    changeProductQuantity={changeProductQuantity}
-                />
-            ))}
-        </>
-    )
+    const productsArray = useSelector((state) => state.products)
+    productsObject = getProductsObject(productsArray)
+
+    if (productsArray.length === 0) {
+        return null
+    } else {
+        return (
+            <>
+                {keys(productsInCart).map((productId) => (
+                    <CartItem
+                        key={productId}
+                        product={productsObject[productId]}
+                        productCount={productsInCart[productId]}
+                    />
+                ))}
+            </>
+        )
+    }
 }

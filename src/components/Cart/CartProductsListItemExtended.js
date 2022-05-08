@@ -3,9 +3,10 @@ import { Button, Card, CardContent, Grid } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { Quantity } from 'components/Quantity/Quantity'
 import React from 'react'
-import { connect } from 'react-redux'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const useStyles = makeStyles({
     media: {
@@ -18,15 +19,36 @@ const useStyles = makeStyles({
         padding: 15,
     },
 })
-const CartProductListItemExtended = ({
-    product,
-    productCount,
-    removeProductFromCart,
-    changeProductQuantity,
-    isLiked,
-    removeLike,
-    addLike,
-}) => {
+export const CartProductListItemExtended = ({ product, productCount }) => {
+    const isLiked = useSelector((state) => state.productsLikeState[product.id])
+    const dispatch = useDispatch()
+
+    function removeLike(id) {
+        dispatch({
+            type: 'DISLIKE',
+            id,
+        })
+    }
+    function addLike(id) {
+        dispatch({
+            type: 'LIKE',
+            id,
+        })
+    }
+    function changeProductQuantity(id, count) {
+        dispatch({
+            type: 'CHANGE_PRODUCT_QUANTITY',
+            id,
+            count,
+        })
+    }
+    function removeProductFromCart(id) {
+        dispatch({
+            type: 'REMOVE_PRODUCT_FROM_CART',
+            id,
+        })
+    }
+
     const classes = useStyles()
     return (
         <Grid item xs={12} sm={6}>
@@ -73,34 +95,3 @@ const CartProductListItemExtended = ({
         </Grid>
     )
 }
-const mapStateToProps = (state, { product }) => ({
-    isLiked: state.productsLikeState[product.id],
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    addLike: (id) =>
-        dispatch({
-            type: 'LIKE',
-            id,
-        }),
-    removeLike: (id) =>
-        dispatch({
-            type: 'DISLIKE',
-            id,
-        }),
-    removeProductFromCart: (id) =>
-        dispatch({
-            type: 'REMOVE_PRODUCT_FROM_CART',
-            id,
-        }),
-    changeProductQuantity: (id, count) =>
-        dispatch({
-            type: 'CHANGE_PRODUCT_QUANTITY',
-            id,
-            count,
-        }),
-})
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(CartProductListItemExtended)

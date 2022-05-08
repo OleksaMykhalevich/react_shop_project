@@ -11,9 +11,10 @@ import './ProductsListItem.css'
 import PropTypes from 'prop-types'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import { connect, Connect, useSelector } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-const ProductsListItem = ({
+export const ProductsListItem = ({
     name,
     description,
     capacity,
@@ -22,11 +23,33 @@ const ProductsListItem = ({
     image,
     addProductToCart,
     id,
-    isLiked = false,
+
     removeLike,
     addLike,
 }) => {
-    // const isLiked = useSelector((state) => state[id])
+    const isLiked = useSelector((state) => state.productsLikeState[id])
+    const dispatch = useDispatch()
+
+    function removeLike(id) {
+        dispatch({
+            type: 'DISLIKE',
+            id,
+        })
+    }
+    function addLike(id) {
+        dispatch({
+            type: 'LIKE',
+            id,
+        })
+    }
+    function addProductToCart(id, count) {
+        dispatch({
+            type: 'ADD_PRODUCT_TO_CART',
+            id,
+            count,
+        })
+    }
+
     const [count, setCount] = useState(1)
 
     const onDecrement = () => {
@@ -86,29 +109,3 @@ ProductsListItem.defaultProps = {
     description: 'No description...',
     image: 'images/no-image.jpeg',
 }
-
-const mapStateToProps = (state, { id }) => ({
-    isLiked: state.productsLikeState[id],
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    addLike: (id) =>
-        dispatch({
-            type: 'LIKE',
-            id,
-        }),
-    removeLike: (id) =>
-        dispatch({
-            type: 'DISLIKE',
-            id,
-        }),
-    addProductToCart: (id, count) =>
-        dispatch({
-            type: 'ADD_PRODUCT_TO_CART',
-            id,
-            count,
-        }),
-})
-
-// export default ProductsListItem
-export default connect(mapStateToProps, mapDispatchToProps)(ProductsListItem)
