@@ -1,10 +1,7 @@
 import React from 'react'
 import { keys } from 'lodash'
 
-import {
-    getProductsObject,
-    productsArray,
-} from 'components/Products/productsArray'
+import { getProductsObject } from 'components/Products/productsArray'
 import { CartProductListItem } from './CartProductsListItem'
 import { useSelector } from 'react-redux'
 

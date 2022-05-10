@@ -1,17 +1,11 @@
-import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    TextField,
-} from '@mui/material'
+import { Button, Card, CardActions, CardContent } from '@mui/material'
 import { Quantity } from 'components/Quantity/Quantity'
 import React, { useState } from 'react'
 import './ProductsListItem.css'
 import PropTypes from 'prop-types'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import { connect, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 
 export const ProductsListItem = ({
@@ -21,7 +15,7 @@ export const ProductsListItem = ({
     type,
     price,
     image,
-    addProductToCart,
+
     id,
 }) => {
     const isLiked = useSelector((state) => state.productsLikeState[id])
