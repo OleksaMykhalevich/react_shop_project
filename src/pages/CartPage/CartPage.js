@@ -4,6 +4,7 @@ import { CartProductList } from 'components/Cart/CartProductList'
 import { CartProductListItemExtended } from 'components/Cart/CartProductsListItemExtended'
 import { Grid } from '@mui/material'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 export const CartPage = ({ removeProductFromCart, changeProductQuantity }) => {
     const productsInCart = useSelector((state) => state.productsInCart)
@@ -17,6 +18,9 @@ export const CartPage = ({ removeProductFromCart, changeProductQuantity }) => {
                 />
             </Grid>
             <CartTotal productsInCart={productsInCart} />
+            <Link to="/checkout">
+                <p>Proceed to checkout</p>
+            </Link>
         </>
     )
 }

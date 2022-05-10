@@ -23,9 +23,6 @@ export const ProductsListItem = ({
     image,
     addProductToCart,
     id,
-
-    removeLike,
-    addLike,
 }) => {
     const isLiked = useSelector((state) => state.productsLikeState[id])
     const dispatch = useDispatch()
