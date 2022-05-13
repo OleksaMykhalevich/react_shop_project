@@ -1,14 +1,10 @@
 import React from 'react'
 import { keys } from 'lodash'
 import { getProductsObject } from 'components/Products/productsArray'
-import { CartProductListItem } from './CartProductsListItem'
+import { LikedItem } from './LikedItem'
 import { useSelector } from 'react-redux'
 
-export const CartProductList = ({
-    productsInCart,
-    productsObject,
-    CartItem = CartProductListItem,
-}) => {
+export const LikedProductList = ({ productsObject, favoriteReducer }) => {
     const productsArray = useSelector((state) => state.products)
     productsObject = getProductsObject(productsArray)
 
@@ -17,11 +13,10 @@ export const CartProductList = ({
     } else {
         return (
             <>
-                {keys(productsInCart).map((productId) => (
-                    <CartItem
+                {keys(favoriteReducer).map((productId) => (
+                    <LikedItem
                         key={productId}
                         product={productsObject[productId]}
-                        productCount={productsInCart[productId]}
                     />
                 ))}
             </>

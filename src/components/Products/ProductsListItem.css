@@ -35,3 +35,8 @@
     color: black;
     text-decoration: none;
 }
+.itemPosition{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

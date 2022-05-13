@@ -15,7 +15,6 @@ export const ProductsListItem = ({
     type,
     price,
     image,
-
     id,
 }) => {
     const isLiked = useSelector((state) => state.productsLikeState[id])
@@ -41,6 +40,20 @@ export const ProductsListItem = ({
         })
     }
 
+    function addProdutLiked(id, count) {
+        dispatch({
+            type: 'ADD_PRODUCT_TO_FAVORITE',
+            id,
+            count,
+        })
+    }
+    function removeProductFromLiked(id) {
+        dispatch({
+            type: 'REMOVE_PRODUCT_FROM_FAVORITE',
+            id,
+        })
+    }
+
     const [count, setCount] = useState(1)
 
     const onDecrement = () => {
@@ -58,7 +71,11 @@ export const ProductsListItem = ({
                         <img src={image} alt="" />
                     </div>
                     <Button
-                        onClick={() => (isLiked ? removeLike(id) : addLike(id))}
+                        onClick={() =>
+                            isLiked
+                                ? removeLike(id) & removeProductFromLiked(id)
+                                : addLike(id) & addProdutLiked(id, count)
+                        }
                     >
                         {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </Button>

@@ -12,22 +12,24 @@ export const Menu = () => {
                     Home
                 </NavLink>
             </Button>
-
             <Button color="inherit">
                 <NavLink className={setNavLinkClass} to="products">
                     Products
                 </NavLink>
             </Button>
-
             <Button color="inherit">
                 <NavLink className={setNavLinkClass} to="/payment">
                     Payment
                 </NavLink>
             </Button>
-
             <Button color="inherit">
                 <NavLink className={setNavLinkClass} to="/shipping">
                     Shipping
+                </NavLink>
+            </Button>{' '}
+            <Button color="inherit">
+                <NavLink className={setNavLinkClass} to="/favorite">
+                    Favorite
                 </NavLink>
             </Button>
             <Button color="inherit">

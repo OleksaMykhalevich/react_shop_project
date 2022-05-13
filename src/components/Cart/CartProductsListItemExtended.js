@@ -48,6 +48,19 @@ export const CartProductListItemExtended = ({ product, productCount }) => {
             id,
         })
     }
+    function addProdutLiked(id, count) {
+        dispatch({
+            type: 'ADD_PRODUCT_TO_FAVORITE',
+            id,
+            count,
+        })
+    }
+    function removeProductFromLiked(id) {
+        dispatch({
+            type: 'REMOVE_PRODUCT_FROM_FAVORITE',
+            id,
+        })
+    }
 
     const classes = useStyles()
     return (
@@ -88,8 +101,10 @@ export const CartProductListItemExtended = ({ product, productCount }) => {
                         variant="outlined"
                         onClick={() =>
                             isLiked
-                                ? removeLike(product.id)
-                                : addLike(product.id)
+                                ? removeLike(product.id) &
+                                  removeProductFromLiked(product.id)
+                                : addLike(product.id) &
+                                  addProdutLiked(product.id, product.count)
                         }
                     >
                         {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}

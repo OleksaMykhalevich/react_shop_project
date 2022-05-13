@@ -6,7 +6,7 @@ import { Grid } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-export const CartPage = ({ removeProductFromCart, changeProductQuantity }) => {
+export const CartPage = () => {
     const productsInCart = useSelector((state) => state.productsInCart)
     return (
         <>
