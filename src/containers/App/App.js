@@ -9,7 +9,6 @@ import { fetchProducts } from 'redux/productsReducer'
 export const App = () => {
     const dispatch = useDispatch()
     useEffect(() => {
-        function hhh() {}
         dispatch(fetchProducts())
     }, [])
     return (
